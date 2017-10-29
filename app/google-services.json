@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "408345532733",
+    "firebase_url": "https://surveyproject-96324.firebaseio.com",
+    "project_id": "surveyproject-96324",
+    "storage_bucket": "surveyproject-96324.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:408345532733:android:5b28c43e9f3ef207",
+        "android_client_info": {
+          "package_name": "dumad.surveyproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "408345532733-a0rgpl4qi17pdobem27526gegpcprg70.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDP3C_uahsRiFOvyi6S5DPu7VL7FOOvmNc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
