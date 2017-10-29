@@ -41,9 +41,11 @@ public class DatabaseSurvey implements Deserializable<Survey> {
             Double fats = (Double) map.get("fats");
             Double proteins = (Double) map.get("proteins");
             Double price = (Double) map.get("price");
+            String description = (String) map.get("description");
+            String name = (String) map.get("name");
 
-            Item i = new Item(carbs, calories, fats, proteins, price);
-            s.addItem(str, i);
+            Item i = new Item(carbs, calories, fats, proteins, price, description, name);
+            s.addItem(i);
         }
         return s;
     }

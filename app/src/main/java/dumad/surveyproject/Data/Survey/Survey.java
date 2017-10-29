@@ -2,6 +2,7 @@ package dumad.surveyproject.Data.Survey;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import dumad.surveyproject.Data.Item.Item;
@@ -20,16 +21,19 @@ public class Survey implements POJO<DatabaseSurvey> {
         this.menu = new HashMap<>();
     }
 
-    public Survey(String id, Map<String, Item> menu) {
+    public Survey(String id, List<Item> menu) {
         this.id = id;
-        this.menu = menu;
+        this.menu = new HashMap<>();
+        for(Item i : menu) {
+            this.menu.put(i.getName(), i);
+        }
     }
 
     public Map<String, Item> getMenu() {
         return Collections.unmodifiableMap(menu);
     }
-    public void addItem(String name, Item item) {
-        menu.put(name, item);
+    public void addItem(Item item) {
+        menu.put(item.getName(), item);
     }
 
     public String getId() {

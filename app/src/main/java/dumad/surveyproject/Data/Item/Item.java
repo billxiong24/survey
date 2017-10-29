@@ -7,19 +7,29 @@ package dumad.surveyproject.Data.Item;
 
 public class Item {
     double fats, carbs, proteins, calories, price;
+    String description, name;
 
     public Item() {
 
     }
 
-    public Item(double f, double carbs, double prot, double cals, double price) {
+    public Item(double f, double carbs, double prot, double cals, double price, String descript, String name) {
         this.fats = f;
         this.carbs = carbs;
         this.proteins = prot;
         this.calories = cals;
         this.price = price;
+        this.description = descript;
+        this.name = name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public String getName() {
+        return name;
+    }
     public double getCalories() {
         return calories;
     }

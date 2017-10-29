@@ -10,7 +10,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 import java.util.function.Consumer;
 
 import dumad.surveyproject.Data.Item.Item;
@@ -55,14 +55,14 @@ public class CoreDatabase {
         Users.child(username).addListenerForSingleValueEvent(postListener);
     }
 
-    public void addSurvey(String username, String survey, Map<String, Item> questions) {
+    public void addSurvey(String username, String survey, List<Item> questions) {
         POJO s = new Survey(survey, questions);
         Surveys.child(survey).setValue(s.convert());
         Users.child(username).child("surveys").child(survey).setValue(survey);
     }
 
-    public void addMenuItem(String survey, String itemName,  Item item) {
-        Surveys.child(survey).child("questions").child(itemName).setValue(item);
+    public void addMenuItem(String survey, Item item) {
+        Surveys.child(survey).child("questions").child(item.getName()).setValue(item);
     }
 
     public void readSurvey(String id, final Consumer<Survey> consumer) {
