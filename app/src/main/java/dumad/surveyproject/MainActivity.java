@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
 import dumad.surveyproject.Data.DBController;
@@ -71,6 +72,23 @@ public class MainActivity extends AppCompatActivity {
             public void accept(Survey survey) {
                 System.out.println(survey.getMenu());
                 System.out.println("weee");
+            }
+        });
+
+        base.order("survey564", "bill", "wer name");
+        base.order("survey564", "bill", "wer name");
+        base.readOrder("survey564", new Consumer<Map<String, String>> () {
+            @Override
+            public void accept(Map<String, String> map) {
+                System.out.println(map);
+            }
+        });
+
+        base.readOrder("survey560", new Consumer<Map<String, String>>() {
+            @Override
+            public void accept(Map<String, String> StringMap) {
+                System.out.println(StringMap == null);
+                System.out.println("HEYtyi");
             }
         });
     }

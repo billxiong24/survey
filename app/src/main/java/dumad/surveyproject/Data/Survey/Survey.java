@@ -14,6 +14,7 @@ import dumad.surveyproject.POJO;
  */
 
 public class Survey implements POJO<DatabaseSurvey> {
+    private Map<String, String> orders;
     private Map<String, Item> menu;
     private String id, location;
 
@@ -21,6 +22,7 @@ public class Survey implements POJO<DatabaseSurvey> {
         this.id = id;
         this.location = location;
         this.menu = new HashMap<>();
+        this.orders = new HashMap<>();
     }
 
     public Survey(String id, String location, List<Item> menu) {
@@ -30,6 +32,23 @@ public class Survey implements POJO<DatabaseSurvey> {
         for(Item i : menu) {
             this.menu.put(i.getName(), i);
         }
+
+        this.orders = new HashMap<>();
+    }
+
+    public Survey(String id, String location, List<Item> menu, Map<String, String> orders) {
+        this.id = id;
+        this.location = location;
+        this.menu = new HashMap<>();
+        for(Item i : menu) {
+            this.menu.put(i.getName(), i);
+        }
+
+        this.orders = orders;
+    }
+
+    public Map<String, String> getOrders() {
+        return Collections.unmodifiableMap(this.orders);
     }
 
     public Map<String, Item> getMenu() {
@@ -37,6 +56,10 @@ public class Survey implements POJO<DatabaseSurvey> {
     }
     public void addItem(Item item) {
         menu.put(item.getName(), item);
+    }
+
+    public void addOrder(String name, String item) {
+        this.orders.put(name, item);
     }
 
     public String getId() {
@@ -53,6 +76,11 @@ public class Survey implements POJO<DatabaseSurvey> {
         survey.id = this.id;
         survey.location = this.location;
         survey.questions = new HashMap<>();
+        survey.orders = new HashMap<>();
+
+        for(String s : this.orders.keySet()) {
+            survey.orders.put(s, this.orders.get(s));
+        }
         for(String s : this.menu.keySet()) {
             survey.questions.put(s, this.menu.get(s));
         }

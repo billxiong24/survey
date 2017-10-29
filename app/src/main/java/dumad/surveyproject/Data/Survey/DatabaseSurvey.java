@@ -13,10 +13,15 @@ import dumad.surveyproject.Deserializable;
 public class DatabaseSurvey implements Deserializable<Survey> {
 
     Map<String, Object> questions;
+    Map<String, String> orders;
     String id, location;
 
     DatabaseSurvey() {
 
+    }
+
+    public Map<String, String> getOrders() {
+        return orders;
     }
 
     public String getLocation() {
@@ -52,6 +57,14 @@ public class DatabaseSurvey implements Deserializable<Survey> {
             Item i = new Item(carbs, calories, fats, proteins, price, description, name);
             s.addItem(i);
         }
+
+        if(this.orders == null)
+            return s;
+
+        for(String str : this.orders.keySet()) {
+            s.addOrder(str, this.orders.get(str));
+        }
+
         return s;
     }
 }

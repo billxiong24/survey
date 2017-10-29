@@ -1,6 +1,7 @@
 package dumad.surveyproject.Data;
 
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
 
 import dumad.surveyproject.Data.Database.ItemDB;
@@ -91,6 +92,15 @@ public class DBController {
      */
     public void readSurvey(String id, final Consumer<Survey> consumer) {
         this.surveyDB.readSurvey(id, consumer);
+    }
+
+
+    public void order(String survey, String username, String item) {
+        this.surveyDB.order(survey, username, item);
+    }
+
+    public void readOrder(String survey, final Consumer<Map<String, String>> consumer) {
+        this.surveyDB.readOrder(survey, consumer);
     }
 
 }
