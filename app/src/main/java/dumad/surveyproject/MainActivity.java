@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-import dumad.surveyproject.Data.CoreDatabase;
+import dumad.surveyproject.Data.DBController;
 import dumad.surveyproject.Data.Item.Item;
 import dumad.surveyproject.Data.Survey.Survey;
 import dumad.surveyproject.Data.User.User;
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        CoreDatabase base = new CoreDatabase();
+        DBController base = new DBController();
         base.createUser("bill");
         List<Item> list = new ArrayList<>();
         for(int i = 0; i < 4; i++) {
