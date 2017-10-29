@@ -36,6 +36,10 @@ public class SurveyDB extends DB {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 DatabaseSurvey survey = dataSnapshot.getValue(DatabaseSurvey.class);
+                if(survey == null) {
+                    consumer.accept(null);
+                    return;
+                }
                 Survey rev = survey.deserialize();
                 consumer.accept(rev);
             }

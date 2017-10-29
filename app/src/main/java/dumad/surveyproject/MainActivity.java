@@ -51,7 +51,12 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println(survey.getMenu());
             }
         });
-
+        base.readUser("asdf", new Consumer<User>() {
+            @Override
+            public void accept(User user) {
+                System.out.println(user == null);
+            }
+        });
         base.readUser("bill", new Consumer<User>() {
             @Override
             public void accept(User user) {

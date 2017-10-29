@@ -30,11 +30,11 @@ public class DatabaseUser implements Deserializable<User>{
         User u = new User(this.username);
         if(surveys == null)
             return u;
+
         for(String s : surveys.keySet()) {
             u.addSurvey(s);
         }
-        //System.out.println("hi");
-        //System.out.println(u.getSurveys());
+
         return u;
     }
 

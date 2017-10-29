@@ -36,6 +36,11 @@ public class UserDB extends DB {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 DatabaseUser d = dataSnapshot.getValue(DatabaseUser.class);
+                if(d == null) {
+                    consumer.accept(null);
+                    return;
+                }
+
                 User user = d.deserialize();
 
                 consumer.accept(user);
