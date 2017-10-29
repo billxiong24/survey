@@ -7,6 +7,7 @@ package dumad.surveyproject;
  * Only non-POJO classes should implement this interface
  */
 
+@FunctionalInterface
 public interface POJO<ConvertObj>{
 
 

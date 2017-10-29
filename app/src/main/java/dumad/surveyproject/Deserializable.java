@@ -7,6 +7,7 @@ package dumad.surveyproject;
  * Only POJO classes should implement this interface.
  */
 
+@FunctionalInterface
 public interface Deserializable<DeserializeObj> {
 
     /**
