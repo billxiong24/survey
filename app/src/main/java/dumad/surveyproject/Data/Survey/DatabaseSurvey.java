@@ -7,15 +7,20 @@ import dumad.surveyproject.Deserializable;
 
 /**
  * Created by Ritler on 10/28/17.
+ * Survey POJO model.
  */
 
 public class DatabaseSurvey implements Deserializable<Survey> {
 
     Map<String, Object> questions;
-    String id;
+    String id, location;
 
     DatabaseSurvey() {
 
+    }
+
+    public String getLocation() {
+        return location;
     }
 
     public String getId() {
@@ -28,7 +33,7 @@ public class DatabaseSurvey implements Deserializable<Survey> {
 
     @Override
     public Survey deserialize() {
-        Survey s = new Survey(id);
+        Survey s = new Survey(id, location);
         if(questions == null)
             return s;
 

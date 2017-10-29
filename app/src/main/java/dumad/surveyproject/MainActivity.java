@@ -29,18 +29,19 @@ public class MainActivity extends AppCompatActivity {
         for(int i = 0; i < 4; i++) {
             list.add(new Item(i, i+1, i+2, i+3, 5.34, "descrieeption", "a name"+i));
         }
-        base.addSurvey("bill", "survey560", list);
-        base.addSurvey("bill", "survey564", list);
-        base.addSurvey("bill", "survey565", list);
-        base.addSurvey("bill", "survey566", list);
-        base.addSurvey("bill", "survey569", list);
-        base.addSurvey("bill", "survey453", new ArrayList<Item>());
+        base.addSurvey("bill", "west union", "survey560", list);
+        base.addSurvey("bill", "wat", "survey564", list);
+        base.addSurvey("bill", "a location", "survey565", list);
+        base.addSurvey("bill", "aloc", "survey566", list);
+        base.addSurvey("bill", "loc", "survey569", list);
+        base.addSurvey("bill", "er", "survey453", new ArrayList<Item>());
 
         base.readSurvey("survey453", new Consumer<Survey>() {
             @Override
             public void accept(Survey survey) {
                 System.out.println(survey.getMenu());
                 System.out.println(survey.getId());
+                System.out.println(survey.getLocation());
             }
         });
 

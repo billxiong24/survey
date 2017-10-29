@@ -10,19 +10,22 @@ import dumad.surveyproject.POJO;
 
 /**
  * Created by Ritler on 10/28/17.
+ * Survey model.
  */
 
 public class Survey implements POJO<DatabaseSurvey> {
     private Map<String, Item> menu;
-    private String id;
+    private String id, location;
 
-    public Survey(String id) {
+    public Survey(String id, String location) {
         this.id = id;
+        this.location = location;
         this.menu = new HashMap<>();
     }
 
-    public Survey(String id, List<Item> menu) {
+    public Survey(String id, String location, List<Item> menu) {
         this.id = id;
+        this.location = location;
         this.menu = new HashMap<>();
         for(Item i : menu) {
             this.menu.put(i.getName(), i);
@@ -40,10 +43,15 @@ public class Survey implements POJO<DatabaseSurvey> {
         return id;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
     @Override
     public DatabaseSurvey convert() {
         DatabaseSurvey survey = new DatabaseSurvey();
         survey.id = this.id;
+        survey.location = this.location;
         survey.questions = new HashMap<>();
         for(String s : this.menu.keySet()) {
             survey.questions.put(s, this.menu.get(s));

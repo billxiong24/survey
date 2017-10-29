@@ -58,11 +58,12 @@ public class DBController {
     /**
      * Add a new survey to a specific user, i.e. the user created this survey.
      * @param username the username of user
+     * @param location the location of the survey
      * @param survey the name of the survey (must be unique, so far no error handling so be careful)
      * @param questions list of items on survey
      */
-    public void addSurvey(String username, String survey, List<Item> questions) {
-        this.surveyDB.addSurvey(username, survey, questions);
+    public void addSurvey(String username, String location, String survey, List<Item> questions) {
+        this.surveyDB.addSurvey(username, location, survey, questions);
     }
 
     /**

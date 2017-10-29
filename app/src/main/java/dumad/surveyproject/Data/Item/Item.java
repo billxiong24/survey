@@ -2,7 +2,7 @@ package dumad.surveyproject.Data.Item;
 
 /**
  * Created by Ritler on 10/29/17.
- * This item itself is pOJO, doesnt need to implement interface
+ * This item itself is POJO, doesnt need to implement interface
  */
 
 public class Item {

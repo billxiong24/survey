@@ -9,6 +9,7 @@ import dumad.surveyproject.POJO;
 
 /**
  * Created by Ritler on 10/28/17.
+ * User model.
  */
 
 public class User implements POJO<DatabaseUser> {

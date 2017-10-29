@@ -23,8 +23,8 @@ public class SurveyDB extends DB {
     public SurveyDB() {
         super();
     }
-    public void addSurvey(String username, String survey, List<Item> questions) {
-        POJO s = new Survey(survey, questions);
+    public void addSurvey(String username, String location, String survey, List<Item> questions) {
+        POJO s = new Survey(survey, location, questions);
         super.getSurveys().child(survey).setValue(s.convert());
         super.getUsers().child(username).child("surveys").child(survey).setValue(survey);
     }

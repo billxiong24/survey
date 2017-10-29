@@ -6,6 +6,7 @@ import dumad.surveyproject.Deserializable;
 
 /**
  * Created by Ritler on 10/28/17.
+ * POJO object for user.
  */
 
 public class DatabaseUser implements Deserializable<User>{
