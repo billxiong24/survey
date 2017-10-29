@@ -91,6 +91,15 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println("HEYtyi");
             }
         });
+
+        base.readAllSurveys(new Consumer<List<Survey>>() {
+            @Override
+            public void accept(List<Survey> survey) {
+                for(Survey s : survey) {
+                    System.out.println(s.getId());
+                }
+            }
+        });
     }
 
     @Override

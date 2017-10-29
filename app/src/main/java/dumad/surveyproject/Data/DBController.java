@@ -103,4 +103,7 @@ public class DBController {
         this.surveyDB.readOrder(survey, consumer);
     }
 
+    public void readAllSurveys(final Consumer<List<Survey>> consumer) {
+        this.surveyDB.readAllSurveys(consumer);
+    }
 }

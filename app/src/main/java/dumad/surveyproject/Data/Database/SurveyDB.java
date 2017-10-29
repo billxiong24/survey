@@ -6,6 +6,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -30,6 +31,35 @@ public class SurveyDB extends DB {
         POJO s = new Survey(survey, location, questions);
         super.getSurveys().child(survey).setValue(s.convert());
         super.getUsers().child(username).child("surveys").child(survey).setValue(survey);
+    }
+
+    public void readAllSurveys(final Consumer<List<Survey>> consumer) {
+        ValueEventListener postListener = new ValueEventListener() {
+
+            @RequiresApi(api = 24)
+            @Override
+            public void onDataChange(DataSnapshot d) {
+                List<Survey> list = new LinkedList<>();
+                for(DataSnapshot dataSnapshot : d.getChildren()) {
+                    DatabaseSurvey survey = dataSnapshot.getValue(DatabaseSurvey.class);
+                    if (survey == null) {
+                        consumer.accept(null);
+                        return;
+                    }
+                    Survey rev = survey.deserialize();
+                    list.add(rev);
+                }
+
+                consumer.accept(list);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+            }
+        };
+
+        super.getSurveys().addListenerForSingleValueEvent(postListener);
     }
 
     public void readSurvey(String id, final Consumer<Survey> consumer) {
